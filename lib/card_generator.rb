@@ -43,5 +43,14 @@ class CardGenerator
     end
   end
 
+  def format_card
+    formatted_cards = string_to_3_elements.map do |card|
+      card = [card[1].to_sym, card[0], card[2].to_i]
+    end
+  end
 
-end
+  def assign_to_card_class
+
+  end
+
+end #final
