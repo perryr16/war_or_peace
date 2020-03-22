@@ -49,4 +49,3 @@ Ace, diamond, 14
 Jack, club, 11
 Queen, club, 12
 King, club, 13
-Ace, club, 14
