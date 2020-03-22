@@ -105,7 +105,23 @@ class TurnTest < Minitest::Test
 
   end
 
-  
+  def test_it_assigns_cards_to_deck
+    filename = "./lib/two_cards.txt"
+    card_geneartor = CardGenerator.new(filename)
+
+
+    # card_array = [[:spade, "Ace", 14], [:spade, "King", 13]]
+    # card_generator.format_card
+  # binding.pry
+    puts card_geneartor.create_deck
+  #  binding.pry
+    assert_instance_of Deck, card_geneartor.create_deck
+
+
+
+  end
+
+
 
 
 
