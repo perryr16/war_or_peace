@@ -1,0 +1,2 @@
+Ace, spade, 14
+King, spade, 13
