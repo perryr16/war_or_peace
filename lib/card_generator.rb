@@ -5,6 +5,7 @@
 # puts "Card List: #{card_list}"
 
 require './lib/card'
+require './lib/deck'
 
 
 class CardGenerator
@@ -49,7 +50,11 @@ class CardGenerator
     end
   end
 
-  def assign_to_card_class
+  def create_card_class_array
+    card_class_array = format_card.map do |card|
+      card = Card.new(*card)
+    end
+    #binding.pry
 
   end
 
