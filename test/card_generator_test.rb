@@ -42,8 +42,14 @@ class TurnTest < Minitest::Test
     assert_equal card_array,     card_generator.array_of_arrays
   end
 
-  # def
-  #
-  # end
+  def test_it_splits_string_into_3_elements
+    filename = "./lib/two_cards.txt"
+    card_generator = CardGenerator.new(filename)
+    card_generator.file_to_string_array
+    card_generator.array_of_arrays
+
+    card_array = [["Ace", "spade", "14"], ["King", "spade", "13"]]
+    assert_equal card_array,     card_generator.string_to_3_elements
+  end
 
 end
