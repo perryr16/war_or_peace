@@ -70,10 +70,28 @@ class TurnTest < Minitest::Test
   def test_it_assigns_card_to_card_class
     filename = "./lib/two_cards.txt"
     card_generator = CardGenerator.new(filename)
+    card_generator.format_card
+    #binding.pry
+    card1 = Card.new(*card_generator.format_card[0])
+    card2 = Card.new(*card_generator.format_card[1])
 
-    card_array = [[:spade, "Ace", 14], [:spade, "King", 13]]
+    card_exp1 = Card.new(:spade, "Ace", 14)
+    card_exp2 = Card.new(:spade, "King", 13)
+
+
+    # card_array = [[:spade, "Ace", 14], [:spade, "King", 13]]
     # card_generator.format_card
     # binding.pry
-    assert_equal card_array, card_generator.format_card
+
+    assert_equal card1.suit, card_exp1.suit
+    assert_equal card1.rank, card_exp1.rank
+    assert_equal card1.rank, card_exp1.rank
+
+    assert_equal card2.suit, card_exp2.suit
+    assert_equal card2.rank, card_exp2.rank
+    assert_equal card2.rank, card_exp2.rank
+  end
+
+
 
 end
