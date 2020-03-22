@@ -17,7 +17,8 @@ class CardGenerator
   #turn list into array
   def file_to_string_array
     card_list = []
-    File.open("./lib/two_cards.txt").each do |line|
+    # File.open("./lib/two_cards.txt").each do |line|
+      File.open(@filename).each do |line|
       card_list << line
     end
     card_list.each do |card|
@@ -56,6 +57,10 @@ class CardGenerator
     end
     #binding.pry
 
+  end
+
+  def create_deck
+    deck = Deck.new(create_card_class_array)
   end
 
 end #final
