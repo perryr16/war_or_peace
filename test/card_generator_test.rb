@@ -92,6 +92,21 @@ class TurnTest < Minitest::Test
     assert_equal card2.rank, card_exp2.rank
   end
 
+  def test_it_assigns_card_to_card_class
+    filename = "./lib/two_cards.txt"
+    card_geneartor = CardGenerator.new(filename)
+    card_geneartor.create_card_class_array
+
+    # card_array = [[:spade, "Ace", 14], [:spade, "King", 13]]
+    # card_generator.format_card
+    # binding.pry
+    assert_instance_of Card, card_geneartor.create_card_class_array[0]
+    assert_instance_of Card, card_geneartor.create_card_class_array[1]
+
+  end
+
+  
+
 
 
 end
