@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/card_generator'
+require './lib/card'
 
 require "pry"
 
@@ -45,11 +46,34 @@ class TurnTest < Minitest::Test
   def test_it_splits_string_into_3_elements
     filename = "./lib/two_cards.txt"
     card_generator = CardGenerator.new(filename)
-    card_generator.file_to_string_array
-    card_generator.array_of_arrays
+    #card_generator.file_to_string_array
+    #card_generator.array_of_arrays
 
     card_array = [["Ace", "spade", "14"], ["King", "spade", "13"]]
     assert_equal card_array,     card_generator.string_to_3_elements
   end
+
+  def test_it_formats_suit_value_rank
+    filename = "./lib/two_cards.txt"
+    card_generator = CardGenerator.new(filename)
+    #card_generator.string_to_3_elements
+    #card_generator.format_card
+
+    #card_array = [["Ace", "spade", "14"], ["King", "spade", "13"]]
+    card_array = [[:spade, "Ace", 14], [:spade, "King", 13]]
+    # card_generator.format_card
+    # binding.pry
+    assert_equal card_array, card_generator.format_card
+
+  end
+
+  def test_it_assigns_card_to_card_class
+    filename = "./lib/two_cards.txt"
+    card_generator = CardGenerator.new(filename)
+
+    card_array = [[:spade, "Ace", 14], [:spade, "King", 13]]
+    # card_generator.format_card
+    # binding.pry
+    assert_equal card_array, card_generator.format_card
 
 end
