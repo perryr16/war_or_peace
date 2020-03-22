@@ -6,29 +6,41 @@
 
 require './lib/card'
 
+
 class CardGenerator
-  attr_reader :card_list
 
   def initialize(filename)
     @filename = filename
   end
 
   #turn list into array
-  def file_to_array
-    @card_list = []
-    File.open("./lib/cards.txt").each do |line|
+  def file_to_string_array
+    card_list = []
+    File.open("./lib/two_cards.txt").each do |line|
       card_list << line
     end
-    @card_list.each do |card|
+    card_list.each do |card|
       card.slice!("\n")
     end
-    puts "#{@card_list}"
-    @card_list
+    #puts "#{@card_list}"
+    #@card_list
   end
 
-  def divide_into_3_components
-    #this comment is made in card geneartor branch
+  def array_of_arrays
+      card_array_of_arrays = file_to_string_array.map do |string|
+        #binding.pry
+        string = [string]
+      #  binding.pry
+      end
+      #binding.pry
+      card_array_of_arrays
+  end
 
+  def string_to_3_elements
+  #  binding.pry
+    three_elements = array_of_arrays.map do |card_string|
+      card_string[0].split(', ')
+    end
   end
 
 
